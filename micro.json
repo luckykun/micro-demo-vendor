@@ -1,5 +1,6 @@
 {
   "name": "vendor",
+  "port": 8808,
   "filename": "vendor.min",
-  "cssExtract": false
+  "cssExtract": true
 }
