@@ -1,0 +1,5 @@
+{
+  "name": "vendor",
+  "filename": "vendor.min",
+  "cssExtract": false
+}
