@@ -1,18 +1,6 @@
 {
-  "extends": [
-    "eslint-config-ali",
-    "eslint-config-ali/react"
-  ],
-  "plugins": [
-    "react",
-    "react-hooks"
-  ],
+  "extends": "eslint-config-micro",
   "rules": {
-    "import/prefer-default-export": 0, 
-    "import/no-unresolved": 0,
-    "react/prop-types": 0,
-    "react-hooks/exhaustive-deps": 0,
-    "radix": 0,
-    "react/no-array-index-key": 0
+    
   }
 }
