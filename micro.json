@@ -2,5 +2,6 @@
   "name": "vendor",
   "port": 8808,
   "filename": "vendor.min",
-  "cssExtract": true
+  "cssExtract": true,
+  "isVendor": true
 }
