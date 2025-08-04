@@ -1,5 +1,4 @@
 
-export const _allMicroApplications = {};
 
 const timeoutPromise = () => new Promise((_, reject) => setTimeout(reject, 10000)); // 10s后抛出一个错误
 
@@ -73,7 +72,7 @@ export const renderComponent = (name, update) => {
     .then(() => {
       _allMicroApplications[name] && update(); // 获取到对应组件，则更新基座组件重新渲染
     })
-    .catch((e) => {
+    .catch(() => {
       _allMicroApplications[name] = getErrorComponent(name, 'load_timeout');
       update();
     });
