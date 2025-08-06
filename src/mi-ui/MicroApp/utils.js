@@ -1,4 +1,7 @@
+import microUtils from '../../mi-utils/_micro';
 
+
+const { registerApp, getApplication } = microUtils;
 
 const timeoutPromise = () => new Promise((_, reject) => setTimeout(reject, 10000)); // 10s后抛出一个错误
 
@@ -49,14 +52,13 @@ const loadResource = (resources, onError) => {
 const loadMicroResource = async (name) => {
   const microConfig = window.MICRO_APP_CONFIG?.[name]; // 获取到当前微应用的相关配置
 
-  if (!microConfig || _allMicroApplications[name]) { // 没有配置相关资源
-    _allMicroApplications[name] = getErrorComponent(name, 'no_resource');
-    return;
+  if (!microConfig) { // 没有配置相关资源
+    return registerApp(name, getErrorComponent(name, 'no_resource'));
   }
 
   // 加载失败的回调
   const onError = () => {
-    _allMicroApplications[name] = getErrorComponent(name, 'load_fail');
+    registerApp(name, getErrorComponent(name, 'load_fail'));
   };
 
   const { dependencies = [], resources = [] } = microConfig;
@@ -70,10 +72,10 @@ export const renderComponent = (name, update) => {
     timeoutPromise(),
   ])
     .then(() => {
-      _allMicroApplications[name] && update(); // 获取到对应组件，则更新基座组件重新渲染
+      getApplication(name) && update(); // 获取到对应组件，则更新基座组件重新渲染
     })
     .catch(() => {
-      _allMicroApplications[name] = getErrorComponent(name, 'load_timeout');
+      registerApp(name, getErrorComponent(name, 'load_timeout'));
       update();
     });
 };

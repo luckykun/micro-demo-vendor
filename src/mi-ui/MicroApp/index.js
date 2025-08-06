@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { _allMicroApplications, renderComponent } from './utils';
+import miUtils from '../../mi-utils';
+import { renderComponent } from './utils';
 
 const MicroApp = (props) => {
   const {
@@ -9,7 +10,7 @@ const MicroApp = (props) => {
     ...rest
   } = props;
   const [flag, setFlag] = React.useState(false);
-  const Application = _allMicroApplications[name];
+  const Application = miUtils.getApplication(name);
 
   const update = () => {
     setFlag(!flag);
