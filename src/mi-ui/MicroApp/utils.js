@@ -1,7 +1,7 @@
-import microUtils from '../../mi-utils/_micro';
+import mi from '../../mi-utils';
 
 
-const { registerApp, getApplication } = microUtils;
+const { registerApp, getApplication } = mi;
 
 const timeoutPromise = () => new Promise((_, reject) => setTimeout(reject, 10000)); // 10s后抛出一个错误
 
