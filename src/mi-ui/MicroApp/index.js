@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import mi from '../../mi-utils';
 import { renderComponent } from './utils';
+import './index.scss';
 
 const MicroApp = (props) => {
   const {
